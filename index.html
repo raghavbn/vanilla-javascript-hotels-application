@@ -25,6 +25,10 @@
     </div>
     <h2>Top Destinations</h2>
     <div id = "hotel-container"></div>
+    <a class = "seeAllHotels" href="#">
+        <span class = "color-blue ft-base bold mg-rt-tiny">see all of our destination offers</span>
+        <span class = "icon-arrow-right"/>
+    </a>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="src/data/hotelInfo.js"></script>
@@ -56,7 +60,8 @@
                 <% });%>
             </ul>
             <a className = "seeEachHotel" href="#">
-                <span class = "color-blue ft-base bold mg-rt-tiny">see all <%= data.hotelCount %> hotels in London</span>
+                <span class = "color-blue ft-base bold mg-rt-tiny">see all <%= data.hotelCount %> hotels in <%= data.location%></span>
+                <span class = "icon-arrow-right"/>
             </a>
         </div>
     </div>

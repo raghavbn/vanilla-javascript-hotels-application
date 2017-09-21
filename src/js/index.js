@@ -29,8 +29,15 @@ $(document).ready(function(){
     }
     $(".accordion").bind("click", function(e){
         var currentAccordion = $(e.currentTarget);
+        var currentSpan = currentAccordion.find('div');
         var panelToShow = currentAccordion.parent().find('.panel');
-        //currentAccordion.toggle('icon');
+        if (currentSpan.hasClass('icon-arrow')) {
+            currentSpan.removeClass('icon-arrow');
+            currentSpan.addClass('icon-open');
+        } else {
+            currentSpan.removeClass('icon-open');
+            currentSpan.addClass('icon-arrow');
+        }
         panelToShow.toggle('is-active');
     });
 });
