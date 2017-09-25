@@ -5,19 +5,18 @@
 .is-active {
     display: block;
 }
-.hotelGrid {
+.hotel-grid {
     padding: 0;
     margin-left: 10px;
     list-style-type: none;
 }
-.hotelGrid--lineElement {
+.hotel-element {
     display: block;
     border-bottom: 1px solid #DCE8F4;
     margin-left: 10px;
     margin-bottom: 5px;
     padding-bottom: 5px;
 }
-
 .accordion {
     background-color: #d3ecf8;
     cursor: pointer;
@@ -35,7 +34,6 @@
     background-repeat: no-repeat;
     display: inline;
 }
-
 .icon-open {
     background-image: url(../images/icon_arrow_open.png);
     background-repeat: no-repeat;
@@ -52,15 +50,12 @@
     text-align: left;
     display: block;
 }
-
 a.active {
     color: orange;
 }
-
 nav {
     padding-top: 20px;
 }
-
 h2:after {
     content: "";
     position: absolute;
@@ -68,7 +63,6 @@ h2:after {
     margin-top: 24px;
     margin-left: 10px;
 }
-
 .color-blue {
     color: #15a7dc;
 }
@@ -111,13 +105,11 @@ h2:after {
 .ft-base {
     font-size: 13px;
 }
-
 @media (max-width: 375px)  {
     h2:after {
         width: 104px;
     }
 }
-
 @media (min-width: 376px) and (max-width: 414px)  {
     h2:after {
         width: 140px;
@@ -138,7 +130,6 @@ h2:after {
         width: 1165px;
     }
 }
-
 .caret-right {
     display: inline-block;
     width: 0;
@@ -150,30 +141,18 @@ h2:after {
     border-top: 4px solid transparent;
     margin-right: 5px;
 }
-
-.floatRight {
+.float-rt {
     float: right;
     padding-right: 4px;
 }
-
-.paddingBottom {
-    padding-bottom: 4px;
-    margin-left: -3px;
-}
-
-.seeAllHotels {
+.all-hotels {
     margin-top: 15px;
     float: right;
     padding-right: 5px;
     padding-bottom: 5px;
 }
-
-.seeEachHotel {
+.each-hotel {
     float: left;
     padding-left: 20px;
     padding-bottom: 6px;
-}
-
-.imageSpacing {
-    margin-right: 2px;
 }

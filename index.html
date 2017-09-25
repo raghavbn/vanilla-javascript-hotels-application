@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotels.com - wake up happy</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/css/style.min.css">
 </head>
 <body>
@@ -25,47 +25,11 @@
     </div>
     <h2>Top Destinations</h2>
     <div id = "hotel-container"></div>
-    <a class = "seeAllHotels" href="#">
+    <a class = "all-hotels" href="#">
         <span class = "color-blue ft-base bold mg-rt-tiny">see all of our destination offers</span>
         <span class = "icon-arrow-right"/>
     </a>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="src/data/hotelInfo.js"></script>
-<script src="src/js/underscore-min.js"></script>
-<script type="text/template" id="hotel-list-template">
-    <div>
-        <button class = "accordion">
-            <div class = "icon-arrow"><span class = "color-blue txt-lg bold mg-lt-md"><%= data.location %></span></div>
-            <span class = "color-gray txt-lg bold mg-lt-md txt-left" >over <%= data.hotelCount %> hotels</span>
-        </button>
-        <div class = "panel">
-            <ul class = "hotelGrid">
-                <% _.each(data.hotelList, function(hotel, i) { %>
-                <li key= "<%= i%>" class = "hotelGrid--lineElement">
-                    <span class = "color-blue ft-base"><%= hotel.hotelName %></span>
-                    <div class = "floatRight">
-                        <span class = "color-grayDark ft-base"><%= hotel.stars%></span>
-                        <span class = "color-red mg-rt-tiny ft-base">&#9733;</span>
-                        <span class = "color-grayDark mg-rt-tiny ft-base">From</span>
-                        <% if(hotel.discountedPrice) {%>
-                            <span><strike><%= hotel.originalPrice%></strike>
-                                  <span class = "mg-lt-tiny color-greenDark ft-base bold"><%= hotel.discountedPrice%></span>
-                            </span>
-                        <% } else {%>
-                        <span class = "color-greenDark ft-base bold"><%= hotel.originalPrice %></span>
-                        <% } %>
-                    </div>
-                </li>
-                <% });%>
-            </ul>
-            <a className = "seeEachHotel" href="#">
-                <span class = "color-blue ft-base bold mg-rt-tiny">see all <%= data.hotelCount %> hotels in <%= data.location%></span>
-                <span class = "icon-arrow-right"/>
-            </a>
-        </div>
-    </div>
-</script>
-<script src="src/js/index.js"></script>
+<script data-main="app" src="lib/require.js" async></script>
 </body>
 </html>

@@ -1,0 +1,32 @@
+<div>
+    <button class = "accordion">
+        <div class = "icon-arrow"><span class = "color-blue txt-lg bold mg-lt-md"><%= data.location %></span></div>
+        <span class = "color-gray txt-lg bold mg-lt-md txt-left" >over <%= data.hotelCount %> hotels</span>
+    </button>
+    <div class = "panel">
+        <ul class = "hotel-grid">
+            <% _.each(data.hotelList, function(hotel, i) { %>
+            <li key= "<%= i%>" class = "hotel-element">
+                <span class = "color-blue ft-base"><%= hotel.hotelName %></span>
+                <div class = "float-rt">
+                    <span class = "color-grayDark ft-base"><%= hotel.stars%></span>
+                    <span class = "color-red mg-rt-tiny ft-base">&#9733;</span>
+                    <span class = "color-grayDark mg-rt-tiny ft-base">From</span>
+                    <% if(hotel.discountedPrice) {%>
+                            <span><strike><%= hotel.originalPrice%></strike>
+                                  <span class = "mg-lt-tiny color-greenDark ft-base bold"><%= hotel.discountedPrice%></span>
+                            </span>
+                    <% } else {%>
+                    <span class = "color-greenDark ft-base bold"><%= hotel.originalPrice %></span>
+                    <% } %>
+                </div>
+            </li>
+            <% });%>
+        </ul>
+        <a className = "each-hotel" href="#">
+            <span class = "color-blue ft-base bold mg-rt-tiny">see all <%= data.hotelCount %> hotels in <%= data.location%></span>
+            <span class = "icon-arrow-right"/>
+        </a>
+    </div>
+</div>
+

@@ -1,24 +1,25 @@
-Accordion = function(location, list, count){
-    this.location = location;
-    this.list = list;
-    this.count = count;
-};
-Accordion.prototype.buildHtml = function () {
-    var hotelData = {
-        location: this.location,
-        hotelCount: this.count,
-        hotelList: this.list
+define(['jquery','underscore','./data/hotelInfo'],function ($, _, Hotels) {
+    Accordion = function(location, list, count){
+        this.location = location;
+        this.list = list;
+        this.count = count;
     };
-    var template = _.template($('#hotel-list-template').html())({data : hotelData});
-    return template;
-};
+    Accordion.prototype.buildHtml = function () {
+        var hotelData = {
+            location: this.location,
+            hotelCount: this.count,
+            hotelList: this.list
+        };
 
-Accordion.prototype.render = function ($el) {
-    $el.append(this.buildHtml());
-};
+        var template =  _.template(AppTemplates["html/accordion.html"])({data : hotelData});
+        return template;
+    };
 
-$(document).ready(function(){
-    var hotelsInformation = window.hotelInfo;
+    Accordion.prototype.render = function ($el) {
+        $el.append(this.buildHtml());
+    };
+
+    var hotelsInformation = Hotels.hotelInfo;
     var $hotelContainer = $('#hotel-container');
     if(hotelsInformation && Array.isArray(hotelsInformation)) {
         $hotelContainer.html('');
