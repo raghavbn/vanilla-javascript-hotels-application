@@ -1,9 +1,7 @@
 module.exports = function(grunt) {
 grunt.initConfig({
     htmlConvert: {
-        options: {
-            // custom options, see below
-        },
+        options: {},
         AppTemplates: {
             src: ['src/html/accordion.html'],
             dest: 'src/templates/appTemplates.js'
