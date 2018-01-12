@@ -1,35 +1,34 @@
 var AppTemplates = {};
 
-AppTemplates["html/accordion.html"] = "<div>\n" +
-   "    <button class = \"accordion\">\n" +
-   "        <div class = \"icon-arrow\"><span class = \"color-blue txt-lg bold mg-lt-md\"><%= data.location %></span></div>\n" +
-   "        <span class = \"color-gray txt-lg bold mg-lt-md txt-left\" >over <%= data.hotelCount %> hotels</span>\n" +
-   "    </button>\n" +
-   "    <div class = \"panel\">\n" +
-   "        <ul class = \"hotel-grid\">\n" +
-   "            <% _.each(data.hotelList, function(hotel, i) { %>\n" +
-   "            <li key= \"<%= i%>\" class = \"hotel-element\">\n" +
-   "                <span class = \"color-blue ft-base\"><%= hotel.hotelName %></span>\n" +
-   "                <div class = \"float-rt\">\n" +
-   "                    <span class = \"color-grayDark ft-base\"><%= hotel.stars%></span>\n" +
-   "                    <span class = \"color-red mg-rt-tiny ft-base\">&#9733;</span>\n" +
-   "                    <span class = \"color-grayDark mg-rt-tiny ft-base\">From</span>\n" +
-   "                    <% if(hotel.discountedPrice) {%>\n" +
-   "                            <span><strike><%= hotel.originalPrice%></strike>\n" +
-   "                                  <span class = \"mg-lt-tiny color-greenDark ft-base bold\"><%= hotel.discountedPrice%></span>\n" +
-   "                            </span>\n" +
-   "                    <% } else {%>\n" +
-   "                    <span class = \"color-greenDark ft-base bold\"><%= hotel.originalPrice %></span>\n" +
-   "                    <% } %>\n" +
-   "                </div>\n" +
-   "            </li>\n" +
+AppTemplates["html/accordion-new.html"] = "<table id=\"customers\">\n" +
+   "    <tr>\n" +
+   "        <th>Name</th>\n" +
+   "        <th>Type-of-Index</th>\n" +
+   "        <th>Open-Price</th>\n" +
+   "        <th>Last-Traded-Price</th>\n" +
+   "        <th>Has-Changed-Since-Morning-By</th>\n" +
+   "        <th>Has-Changed-Since-Morning-Percentage</th>\n" +
+   "        <th>Current-Volume</th>\n" +
+   "        <th>Stock-Value-in-Bracket-Order</th>\n" +
+   "        <th>Margin-given</th>\n" +
+   "    </tr>\n" +
+   "    <% _.each(data, function(scrip, i) { %>\n" +
+   "    <tr>\n" +
+   "        <td><%= scrip.symbol%></td>\n" +
+   "        <td>\n" +
+   "            <% _.each(scrip.typeOfIndex, function(scripIndex, j) { %>\n" +
+   "            <%= scripIndex%>,\n" +
    "            <% });%>\n" +
-   "        </ul>\n" +
-   "        <a className = \"each-hotel\" href=\"#\">\n" +
-   "            <span class = \"color-blue ft-base bold mg-rt-tiny\">see all <%= data.hotelCount %> hotels in <%= data.location%></span>\n" +
-   "            <span class = \"icon-arrow-right\"/>\n" +
-   "        </a>\n" +
-   "    </div>\n" +
-   "</div>\n" +
+   "        </td>\n" +
+   "        <td><%= scrip.open%></td>\n" +
+   "        <td><%= scrip.ltP%></td>\n" +
+   "        <td><%= scrip.hasChangedBy%></td>\n" +
+   "        <td><%= scrip.hasChangedByPercent ? (scrip.hasChangedByPercent + '%') : ''%></td>\n" +
+   "        <td><%= scrip.trdVol%></td>\n" +
+   "        <td><%= scrip.CoverOneStockFor%></td>\n" +
+   "        <td><%= isNaN(scrip.marginProvided) ? '':(scrip.marginProvided + 'x')%></td>\n" +
+   "    </tr>\n" +
+   "    <% });%>\n" +
+   "</table>\n" +
    "\n" +
    "";

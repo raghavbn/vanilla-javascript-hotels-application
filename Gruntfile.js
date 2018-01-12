@@ -3,7 +3,7 @@ grunt.initConfig({
     htmlConvert: {
         options: {},
         AppTemplates: {
-            src: ['src/html/accordion.html'],
+            src: ['src/html/accordion-new.html'],
             dest: 'src/templates/appTemplates.js'
         },
     },

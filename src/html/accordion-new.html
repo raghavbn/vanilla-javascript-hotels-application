@@ -11,21 +11,21 @@
         <th>Margin-given</th>
     </tr>
     <% _.each(data, function(scrip, i) { %>
-        <tr>
-            <td><%= scrip.symbol%></td>
-            <td>
+    <tr>
+        <td><%= scrip.symbol%></td>
+        <td>
             <% _.each(scrip.typeOfIndex, function(scripIndex, j) { %>
-                <%= scripIndex%>,
+            <%= scripIndex%>,
             <% });%>
-            </td>
-            <td><%= scrip.open%></td>
-            <td><%= scrip.ltP%></td>
-            <td><%= scrip.hasChangedBy%></td>
-            <td><%= scrip.hasChangedByPercent%>%</td>
-            <td><%= scrip.trdVol%></td>
-            <td><%= scrip.CoverOneStockFor%></td>
-            <td><%= scrip.marginProvided%>x</td>
-        </tr>
+        </td>
+        <td><%= scrip.open%></td>
+        <td><%= scrip.ltP%></td>
+        <td><%= scrip.hasChangedBy%></td>
+        <td><%= scrip.hasChangedByPercent ? (scrip.hasChangedByPercent + '%') : ''%></td>
+        <td><%= scrip.trdVol%></td>
+        <td><%= scrip.CoverOneStockFor%></td>
+        <td><%= isNaN(scrip.marginProvided) ? '':(scrip.marginProvided + 'x')%></td>
+    </tr>
     <% });%>
 </table>
 
